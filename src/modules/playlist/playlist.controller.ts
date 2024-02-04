@@ -9,7 +9,7 @@ const PlaylistController: controllerInterface = {
     const count = Number(req.query.count) as pageType || 10 as pageType;
 
     const response = await PlaylistService.getAll(page, count);
-    return res.status(200).send(response);
+    return res.status(200).json(response);
   },
 
   createPlaylist: async (req, res, next) => {

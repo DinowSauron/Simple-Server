@@ -2,12 +2,15 @@
 //console.log("SERVER LOG:");
 import express, { Request, Response } from 'express';
 import routes from './src/routes';
+const cors = require('cors');
 import { exceptionHandler } from './src/middlewares/errorHandler';
 
 const app = express();
 const PORT = 3005;
 app.use(express.json({ limit: '20mb' }));
 app.use(routes);
+app.use(cors());
+
 app.use(exceptionHandler);
 
 
