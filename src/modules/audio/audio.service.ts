@@ -1,14 +1,14 @@
+import { musicsDB } from './../musics/musics.service';
 import Database from "../../database";
 import { pageType } from "../types/systemTypes";
 import baseService from "../../utils/baseService"
-import { playlistDB } from "../playlist/playlist.service"
 
 const AudioService = {
-  ...baseService(playlistDB),
+  ...baseService(musicsDB),
 
 
   getUrlById: async (id: string) => {
-    const res = playlistDB.getById(id)
+    const res = musicsDB.getById(id)
     if(!res) {
       throw new Error("Não existe audio com este ID")
     }
